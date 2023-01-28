@@ -1,7 +1,14 @@
+import { Product } from '@/models/product';
 import { createStore } from 'vuex'
+import productModule from './products';
 
-export default createStore({
+
+export interface IState{
+  authUser: Product | null;
+}
+export default createStore <IState>({
   state: {
+    authUser: null,
   },
   getters: {
   },
@@ -10,5 +17,6 @@ export default createStore({
   actions: {
   },
   modules: {
-  }
+    products: productModule,
+  },
 })
